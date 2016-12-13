@@ -23,4 +23,5 @@ dependencies {
     // TODO add Glide or Picasso dependency
     compile 'com.android.support:appcompat-v7:25.0.1'
     compile 'com.android.support:design:25.0.1'
+    compile 'com.github.bumptech.glide:glide:3.7.0'
 }
