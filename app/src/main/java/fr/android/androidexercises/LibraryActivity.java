@@ -24,6 +24,13 @@ public class LibraryActivity extends AppCompatActivity {
     @Override
     public void onSaveInstanceState(Bundle outState) {
         // TODO save check box state
+        if (checkBox.isChecked()) {
+            outState.putBoolean("isCheck",true);
+        } else {
+            outState.putBoolean("isCheck", false);
+        }
+
+
 
         super.onSaveInstanceState(outState);
     }
@@ -33,6 +40,7 @@ public class LibraryActivity extends AppCompatActivity {
         super.onRestoreInstanceState(savedInstanceState);
 
         // TODO restore check box
+        checkBox.setChecked(savedInstanceState.getBoolean("isCheck"));
     }
 
     @Override
