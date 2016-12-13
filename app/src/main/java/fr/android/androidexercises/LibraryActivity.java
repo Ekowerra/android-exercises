@@ -1,5 +1,6 @@
 package fr.android.androidexercises;
 
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcel;
@@ -9,6 +10,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
+import android.widget.Toast;
 
 public class LibraryActivity extends AppCompatActivity {
 
@@ -26,10 +29,17 @@ public class LibraryActivity extends AppCompatActivity {
         openButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(LibraryActivity.this, BookActivity.class);
+                //Intent intent = new Intent(LibraryActivity.this, BookActivity.class);
                 // Add book to intent
-                intent.putExtra(BookActivity.BOOK, book);
-                startActivity(intent);
+                //intent.putExtra(BookActivity.BOOK, book);
+                //startActivity(intent);
+                new DatePickerDialog(LibraryActivity.this, new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker datePicker, int year, int month, int day) {
+                        Toast.makeText(LibraryActivity.this, String.format("%i/%i/%i" , year, month , year), Toast.LENGTH_SHORT).show();
+                    }
+                }, 2016, 11, 13).show();
+
             }
         });
     }
