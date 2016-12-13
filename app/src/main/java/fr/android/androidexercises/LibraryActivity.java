@@ -2,6 +2,7 @@ package fr.android.androidexercises;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.ListView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,11 +21,13 @@ public class LibraryActivity extends AppCompatActivity {
         List<Book> books = getBooks();
 
         // TODO findViewById() and setAdapter()
+        ListView listview = (ListView)findViewById(R.id.bookListView);
+        listview.setAdapter(new BookAdapter(LibraryActivity.this,books));
     }
 
     private List<Book> getBooks() {
         ArrayList<Book> books = new ArrayList<>();
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < 1000; i++) {
             books.add(new Book(
                     String.format(Locale.FRANCE, "Garry Potier Tome %d", i),
                     RANDOM.nextInt(30))
