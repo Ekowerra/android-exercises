@@ -4,6 +4,91 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_margin="10dp"
     tools:context=".Library">
+
+    <TextView
+        android:text="Left text3"
+        android:padding="@dimen/padding"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:background="@color/red"
+        android:id="@+id/textView" />
+
+    <TextView
+        android:text="Below left text"
+        android:padding="@dimen/padding"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textView"
+        android:background="@color/purple"
+        android:id="@+id/textView1" />
+
+    <TextView
+        android:text="Right text"
+        android:padding="@dimen/padding"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:background="@color/pink"
+        android:id="@+id/textView2" />
+
+    <TextView
+        android:text="Center text"
+        android:padding="@dimen/padding"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:background="@color/deep_purple"
+        android:id="@+id/textView3" />
+
+    <TextView
+        android:text="Buttom center text"
+        android:padding="@dimen/padding"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="@color/indigo"
+        android:id="@+id/textView4" />
+
+    <TextView
+        android:text="Above bottom center text"
+        android:padding="@dimen/padding"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@id/textView4"
+        android:background="@color/blue"
+        android:id="@+id/textView5" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/textView3"
+        android:orientation="horizontal"
+        >
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/editTextPink"
+            android:background="@color/pink"
+            android:layout_marginRight="10dp"
+            android:layout_weight="1"
+            android:text="pink" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/blue"
+            android:layout_weight="0"
+            android:paddingRight="@dimen/padding"
+            android:text="blue" />
+
+
+    </LinearLayout>
 
 </RelativeLayout>
