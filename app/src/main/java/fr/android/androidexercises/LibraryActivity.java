@@ -7,8 +7,14 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import java.util.List;
+
+import retrofit.Call;
+import retrofit.Callback;
 import retrofit.GsonConverterFactory;
 import retrofit.Retrofit;
+import retrofit.Response;
+import timber.log.Timber;
 
 public class LibraryActivity extends AppCompatActivity {
     private Retrofit retrofit;
@@ -17,6 +23,7 @@ public class LibraryActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Timber.plant(new Timber.DebugTree());
         setContentView(R.layout.activity_library);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 
@@ -29,6 +36,23 @@ public class LibraryActivity extends AppCompatActivity {
                 .build();
 
         service = retrofit.create(BookService.class);
+
+        Call<List<Book>> call = service.listBooks();
+        call.enqueue(new Callback<List<Book>>() {
+            @Override
+            public void onResponse(Response<List<Book>> response, Retrofit retrofit) {
+                // TODO success
+                for (Book book : response.body()) {
+                    Timber.i(book.getTitle());
+                }
+            }
+            @Override
+            public void onFailure(Throwable t) {
+                // TODO error occurred
+                finish();
+            }
+        });
+
 
         setSupportActionBar(toolbar);
     }
@@ -54,4 +78,6 @@ public class LibraryActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+
 }
