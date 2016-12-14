@@ -7,7 +7,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import retrofit.GsonConverterFactory;
+import retrofit.Retrofit;
+
 public class LibraryActivity extends AppCompatActivity {
+    private Retrofit retrofit;
+    private BookService service;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,6 +23,12 @@ public class LibraryActivity extends AppCompatActivity {
         TextView messageTextView = (TextView) findViewById(R.id.messageTextView);
         // TODO call setText() on messageTextView
         messageTextView.setText(R.string.name);
+        retrofit = new Retrofit.Builder()
+                .baseUrl("http://henri-potier.xebia.fr/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        service = retrofit.create(BookService.class);
 
         setSupportActionBar(toolbar);
     }
