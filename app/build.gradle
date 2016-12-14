@@ -32,4 +32,9 @@ dependencies {
     )
 
     // TODO add testCompile dependencies
+    testCompile(
+            'junit:junit:4.12',
+            'org.mockito:mockito-core:1.10.19',
+            'org.assertj:assertj-core:1.7.1'
+    )
 }
